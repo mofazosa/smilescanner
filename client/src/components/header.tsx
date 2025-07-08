@@ -27,10 +27,48 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <svg className="h-8 w-8 text-[#2563EB] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1a4 4 0 004 4v2a6 6 0 01-6-6V10z"/>
+              <svg className="h-10 w-10 mr-3" viewBox="0 0 100 100" fill="none">
+                {/* Circular teal background */}
+                <circle cx="50" cy="50" r="45" fill="#14B8A6" stroke="#0F766E" strokeWidth="2"/>
+                
+                {/* White tooth shape */}
+                <path d="M50 20 
+                         C45 20 40 25 40 30
+                         L40 45
+                         C40 50 42 55 45 58
+                         L48 62
+                         C49 63 50 64 50 65
+                         C50 64 51 63 52 62
+                         L55 58
+                         C58 55 60 50 60 45
+                         L60 30
+                         C60 25 55 20 50 20 Z" 
+                      fill="white" stroke="#E5E7EB" strokeWidth="0.5"/>
+                
+                {/* Tooth details */}
+                <path d="M45 35 L47 37 L53 37 L55 35" stroke="#E5E7EB" strokeWidth="0.5" fill="none"/>
+                <circle cx="47" cy="40" r="1" fill="#E5E7EB"/>
+                <circle cx="53" cy="40" r="1" fill="#E5E7EB"/>
+                
+                {/* Glowing text effect */}
+                <defs>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge> 
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                {/* Smile Scan text with glow */}
+                <text x="50" y="80" textAnchor="middle" fontSize="8" fill="#0F766E" filter="url(#glow)" fontWeight="bold">
+                  SMILE
+                </text>
+                <text x="50" y="88" textAnchor="middle" fontSize="8" fill="#0F766E" filter="url(#glow)" fontWeight="bold">
+                  SCAN
+                </text>
               </svg>
-              <span className="text-xl font-bold text-gray-900">SmileScan</span>
             </div>
           </div>
           

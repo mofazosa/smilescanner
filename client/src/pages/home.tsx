@@ -24,6 +24,7 @@ interface AnalysisData {
 
 export default function Home() {
   const [analysisData, setAnalysisData] = useState<AnalysisData | null>(null);
+  const [uploadCount, setUploadCount] = useState(0);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -34,6 +35,7 @@ export default function Home() {
 
   const handleAnalysisComplete = (data: AnalysisData) => {
     setAnalysisData(data);
+    setUploadCount(prev => prev + 1);
     setTimeout(() => {
       scrollToSection('results');
     }, 100);
@@ -89,6 +91,28 @@ export default function Home() {
       {analysisData && (
         <section id="results" className="py-20 bg-light-bg">
           <AnalysisResults data={analysisData} />
+          
+          {/* Professional Consultation Warning after 3 uploads */}
+          {uploadCount >= 3 && (
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+              <Alert className="bg-red-50 border-red-200">
+                <AlertTriangle className="h-6 w-6 text-red-600" />
+                <div className="ml-3">
+                  <h3 className="text-lg font-medium text-red-800 mb-2">Professional Consultation Recommended</h3>
+                  <AlertDescription className="text-sm text-red-700">
+                    <p>
+                      You've uploaded multiple photos for analysis. While this app provides educational information, 
+                      we strongly recommend consulting with a qualified dentist or dental hygienist for personalized 
+                      advice and professional examination.
+                    </p>
+                    <p className="mt-2">
+                      <strong>Schedule a dental appointment if you have specific concerns about your oral health.</strong>
+                    </p>
+                  </AlertDescription>
+                </div>
+              </Alert>
+            </div>
+          )}
         </section>
       )}
 
