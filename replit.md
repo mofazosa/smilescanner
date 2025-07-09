@@ -123,7 +123,10 @@ tips: {
 
 ## Changelog
 - July 08, 2025. Initial setup
+- January 08, 2025. Added safety features: professional consultation warning after 3 uploads, restored original logo design
+- January 08, 2025. User needs permanent hosting solution for Instagram sharing
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+User Goal: Share SmileScan app on Instagram with permanent link that works 24/7.
